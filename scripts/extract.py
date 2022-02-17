@@ -5,9 +5,7 @@ from pprint import pprint
 # Settings
 base_path = os.path.dirname(os.path.abspath("__file__"))
 data_path = f"{base_path}/data/raw/search_terms.csv"
-raw_path = f"{base_path}/data/new_search_terms.csv"
-
-
+transformed_path = f"{base_path}/data/transformed/new_search_terms.csv"
 
 # Create extraction method - may need to amend fields
 def extract_raw_data():
@@ -20,7 +18,7 @@ def extract_raw_data():
         # Print the first row
         row = next(reader)
         
-        with open(raw_path, mode="w") as csv_file:
+        with open(transformed_path, mode="w") as csv_file:
             fieldnames = {
                 "ad_group_id":"ad_group_id",
                 "campaign_id":"campaign_id",
@@ -35,6 +33,6 @@ def extract_raw_data():
 # Main function called inside the execute.py script
 def main():
     print("[Extract] Start")
-    print(f"[Extract] Saving data from '{data_path}' to '{raw_path}'")
+    print(f"[Extract] Saving data from '{data_path}' to '{transformed_path}'")
     extract_raw_data()
     print(f"[Extract] End")

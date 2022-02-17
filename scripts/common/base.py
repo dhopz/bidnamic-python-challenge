@@ -13,7 +13,7 @@ DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD')
 
 
 # Create the engine
-engine = create_engine("postgresql+psycopg2://"+DATABASE_USERNAME+":postgres@localhost/etl_example")
+engine = create_engine("postgresql+psycopg2://"+DATABASE_USERNAME+":postgres@localhost/bidnamic_test")
 
 # Initialize the session
 session = Session(engine)
