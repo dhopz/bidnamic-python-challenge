@@ -14,3 +14,4 @@ class SearchTermsAll(Base):
     conversion_value = Column(Float)
     conversions = Column(Integer)
     search_term = Column(String(255))
+    roas = Column(Float)

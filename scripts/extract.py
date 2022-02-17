@@ -20,10 +20,15 @@ def extract_raw_data():
         
         with open(transformed_path, mode="w") as csv_file:
             fieldnames = {
+                "date_of_search":"date_of_search",
                 "ad_group_id":"ad_group_id",
-                "campaign_id":"campaign_id",
-                "alias":"alias",
-                "status":"status"
+                "campaign_id":"campaing_id",
+                "clicks":"clicks",
+                "cost":"cost",
+                "conversion_value":"conversion_value",
+                "conversions":"conversions",
+                "search_term":"search_term"
+                
             }
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             for row in reader:
