@@ -13,3 +13,11 @@ CREATE TABLE search_terms_all(
 
 alter table search_terms_all alter cost type decimal(10,2);
 alter table search_terms_all alter conversion_value type decimal(10,2);
+
+CREATE TABLE adgroups(
+    id serial PRIMARY KEY,
+    ad_group_id VARCHAR ( 55 ) NOT NULL,
+    campaign_id VARCHAR ( 55 ) NOT NULL,
+    alias VARCHAR ( 255 ) NOT NULL,
+    status VARCHAR ( 55 ) NOT NULL
+);

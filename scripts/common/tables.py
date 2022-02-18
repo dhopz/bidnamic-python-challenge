@@ -15,3 +15,11 @@ class SearchTermsAll(Base):
     conversions = Column(Integer)
     search_term = Column(String(255))
     roas = Column(Float)
+
+class AdGroupsAll(Base):
+    __tablename__ = "adgroups"
+    id = Column(Integer, primary_key=True)
+    ad_group_id = Column(String(55))
+    campaign_id = Column(String(55))
+    alias = Column(String(255))
+    status = Column(String(55))
