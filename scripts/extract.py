@@ -16,7 +16,7 @@ def extract_raw_data():
     with open(data_path, mode="r") as csv_file:
         reader = csv.DictReader(csv_file)    
         # Print the first row
-        row = next(reader)
+        #row = next(reader)
         
         with open(transformed_path, mode="w") as csv_file:
             fieldnames = {
@@ -31,6 +31,7 @@ def extract_raw_data():
                 
             }
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+            writer.writerow(fieldnames)
             for row in reader:
                 writer.writerow(row)
 

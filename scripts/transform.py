@@ -4,6 +4,7 @@ from datetime import datetime
 
 from scripts.common.tables import SearchTermsAll
 from scripts.common.base import session
+from sqlalchemy import text
 
 
 base_path = os.path.dirname(os.path.abspath("__file__"))
@@ -17,6 +18,16 @@ def calculate_roas(conversion_value,cost):
         return conversion_value/cost
     except ZeroDivisionError:
         return 0
+
+def truncate_table():
+    """
+    Ensure that the tables are in an empty state before running any transformations.
+    And primary key (id) restarts from 1.
+    """
+    session.execute(
+        text("TRUNCATE TABLE search_terms_all;ALTER SEQUENCE search_terms_all_id_seq RESTART;")
+    )
+    session.commit()
 
 def transform_new_data():
     """
@@ -47,7 +58,9 @@ def transform_new_data():
         session.commit()
 
 def main():
-    print("[Transform] Start")    
+    print("[Transform] Start")
+    print("[Transform] Remove any old data from ppr_raw_all table")
+    truncate_table()
     print("[Transform] Transform new data available in search_terms_all table")
     transform_new_data()
     print("[Transform] End")
