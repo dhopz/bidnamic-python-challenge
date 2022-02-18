@@ -2,22 +2,13 @@ import os
 import csv
 from datetime import datetime
 
-from scripts.common.tables import SearchTermsAll
+from scripts.common.tables import CampaignsAll
 from scripts.common.base import session
 from sqlalchemy import text
 
 
 base_path = os.path.dirname(os.path.abspath("__file__"))
-transformed_path = f"{base_path}/data/transformed/new_search_terms.csv"
-
-def calculate_roas(conversion_value,cost):
-    '''
-    Return On Ad Spend (ROAS)    
-    '''
-    try:
-        return conversion_value/cost
-    except ZeroDivisionError:
-        return 0
+transformed_path = f"{base_path}/data/raw/campaigns.csv"
 
 def truncate_table():
     """
@@ -25,7 +16,7 @@ def truncate_table():
     And primary key (id) restarts from 1.
     """
     session.execute(
-        text("TRUNCATE TABLE search_terms_all;ALTER SEQUENCE search_terms_all_id_seq RESTART;")
+        text("TRUNCATE TABLE campaigns;ALTER SEQUENCE campaigns_id_seq RESTART;")
     )
     session.commit()
 
@@ -41,16 +32,10 @@ def transform_new_data():
         for row in reader:
             # Apply transformations and save as object
             new_objects.append(
-                SearchTermsAll(
-                    date_of_search = row["date_of_search"],
-                    ad_group_id = row["ad_group_id"],
+                CampaignsAll(                    
                     campaign_id = row["campaign_id"],
-                    clicks = row["clicks"],
-                    cost = row["cost"],
-                    conversion_value = row["conversion_value"], 
-                    conversions = row["conversions"],
-                    search_term = row["search_term"],
-                    roas = calculate_roas(float(row["conversion_value"]),float(row["cost"]))                 
+                    structure_value = row["structure_value"],
+                    status = row["status"],
                 )
             )
         # Save all new processed objects and commit

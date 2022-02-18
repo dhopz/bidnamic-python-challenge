@@ -23,3 +23,10 @@ class AdGroupsAll(Base):
     campaign_id = Column(String(55))
     alias = Column(String(255))
     status = Column(String(55))
+
+class CampaignsAll(Base):
+    __tablename__ = "campaigns"
+    id = Column(Integer, primary_key=True)
+    campaign_id = Column(String(55))
+    structure_value = Column(String(55))
+    status = Column(String(55))

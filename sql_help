@@ -21,3 +21,10 @@ CREATE TABLE adgroups(
     alias VARCHAR ( 255 ) NOT NULL,
     status VARCHAR ( 55 ) NOT NULL
 );
+
+CREATE TABLE campaigns(
+    id serial PRIMARY KEY,
+    campaign_id VARCHAR ( 55 ) NOT NULL,
+    structure_value VARCHAR ( 55 ) NOT NULL,
+    status VARCHAR ( 55 ) NOT NULL
+);
