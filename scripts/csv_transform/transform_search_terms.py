@@ -1,12 +1,13 @@
 import os
 import csv
 
-from scripts.common.tables import SearchTermsAll
-from scripts.common.base import session
+from common.tables import SearchTermsAll
+from common.base import session
 from sqlalchemy import text
 
 
-base_path = os.path.dirname(os.path.abspath("__file__"))
+#base_path = os.path.dirname(os.path.abspath("__file__"))
+base_path = os.path.abspath(__file__ + "/../../../")
 transformed_path = f"{base_path}/data/transformed/new_search_terms.csv"
 
 def calculate_roas(conversion_value,cost):

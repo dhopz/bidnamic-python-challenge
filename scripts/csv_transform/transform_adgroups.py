@@ -2,12 +2,15 @@ import os
 import csv
 from datetime import datetime
 
-from scripts.common.tables import AdGroupsAll
-from scripts.common.base import session
+from common.tables import AdGroupsAll
+from common.base import session
 from sqlalchemy import text
 
-base_path = os.path.dirname(os.path.abspath("__file__"))
+#base_path = os.path.dirname(os.path.abspath("__file__"))
+base_path = os.path.abspath(__file__ + "/../../../")
+#print(base_path)
 transformed_path = f"{base_path}/data/raw/adgroups.csv"
+print(transformed_path, "this is the path....")
 
 def truncate_table():
     """

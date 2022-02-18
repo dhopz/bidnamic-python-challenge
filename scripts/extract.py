@@ -3,7 +3,8 @@ import csv
 from pprint import pprint
 
 # Settings
-base_path = os.path.dirname(os.path.abspath("__file__"))
+#base_path = os.path.dirname(os.path.abspath("__file__"))
+base_path = os.path.abspath(__file__ + "/../../")
 data_path = f"{base_path}/data/raw/search_terms.csv"
 transformed_path = f"{base_path}/data/transformed/new_search_terms.csv"
 

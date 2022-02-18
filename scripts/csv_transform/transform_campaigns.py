@@ -2,12 +2,13 @@ import os
 import csv
 from datetime import datetime
 
-from scripts.common.tables import CampaignsAll
-from scripts.common.base import session
+from common.tables import CampaignsAll
+from common.base import session
 from sqlalchemy import text
 
 
-base_path = os.path.dirname(os.path.abspath("__file__"))
+#base_path = os.path.dirname(os.path.abspath("__file__"))
+base_path = os.path.abspath(__file__ + "/../../../")
 transformed_path = f"{base_path}/data/raw/campaigns.csv"
 
 def truncate_table():
