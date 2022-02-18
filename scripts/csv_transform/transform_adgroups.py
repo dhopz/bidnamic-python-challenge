@@ -44,8 +44,8 @@ def transform_new_data():
 
 def main():
     print("[Transform] Start")
-    print("[Transform] Remove any old data from search_terms_all table")
+    print("[Transform] Remove any old data from adgroups table")
     truncate_table()
-    print("[Transform] Transform new data available in search_terms_all table")
+    print("[Transform] Transform new data available in adgroups table")
     transform_new_data()
     print("[Transform] End")

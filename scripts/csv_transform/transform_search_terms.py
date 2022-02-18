@@ -1,6 +1,5 @@
 import os
 import csv
-from datetime import datetime
 
 from scripts.common.tables import SearchTermsAll
 from scripts.common.base import session
