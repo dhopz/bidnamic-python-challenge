@@ -22,7 +22,7 @@ def extract_raw_data():
             fieldnames = {
                 "date":"date_of_search",
                 "ad_group_id":"ad_group_id",
-                "campaign_id":"campaing_id",
+                "campaign_id":"campaign_id",
                 "clicks":"clicks",
                 "cost":"cost",
                 "conversion_value":"conversion_value",
