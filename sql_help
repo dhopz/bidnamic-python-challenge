@@ -1,0 +1,15 @@
+CREATE TABLE search_terms_all(
+    id serial PRIMARY KEY,
+    date_of_search VARCHAR ( 255 ) NOT NULL,
+    ad_group_id VARCHAR ( 55 ) NOT NULL,
+    campaign_id VARCHAR ( 55 ) NOT NULL,
+    clicks INT NOT NULL,
+    cost INT NOT NULL,
+    conversion_value INT NOT NULL,
+    conversions INT NOT NULL,
+    search_term  VARCHAR ( 255 ) NOT NULL,
+    roas INT NOT NULL
+);
+
+alter table search_terms_all alter cost type decimal(10,2);
+alter table search_terms_all alter conversion_value type decimal(10,2);

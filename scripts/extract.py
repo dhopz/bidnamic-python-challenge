@@ -20,7 +20,7 @@ def extract_raw_data():
         
         with open(transformed_path, mode="w") as csv_file:
             fieldnames = {
-                "date_of_search":"date_of_search",
+                "date":"date_of_search",
                 "ad_group_id":"ad_group_id",
                 "campaign_id":"campaing_id",
                 "clicks":"clicks",
