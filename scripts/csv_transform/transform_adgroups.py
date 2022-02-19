@@ -10,7 +10,6 @@ from sqlalchemy import text
 base_path = os.path.abspath(__file__ + "/../../../")
 #print(base_path)
 transformed_path = f"{base_path}/data/raw/adgroups.csv"
-print(transformed_path, "this is the path....")
 
 def truncate_table():
     """
