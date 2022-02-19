@@ -30,3 +30,53 @@ CREATE TABLE campaigns(
     structure_value VARCHAR ( 55 ) NOT NULL,
     status VARCHAR ( 55 ) NOT NULL
 );
+
+SELECT DISTINCT campaigns.campaign_id, 
+    structure_value, 
+    SUM(cost) AS total_cost, 
+    SUM(conversion_value) as total_conversion_value, 
+    SUM(roas)  
+FROM campaigns
+INNER JOIN search_terms_all ON campaigns.campaign_id = search_terms_all.campaign_id
+WHERE roas > 1
+GROUP BY structure_value,
+    campaigns.campaign_id;
+-- This is the correct sql query - need to add search term
+SELECT DISTINCT structure_value, 
+    SUM(cost) AS total_cost, 
+    SUM(conversion_value) AS total_conversion_value,
+    (SUM(conversion_value)/SUM(cost))::numeric(10,2) AS roas
+FROM campaigns
+INNER JOIN search_terms_all ON campaigns.campaign_id = search_terms_all.campaign_id
+WHERE roas > 1
+GROUP BY structure_value;
+-- 
+CREATE OR REPLACE VIEW insight_structure_value AS
+SELECT DISTINCT structure_value, 
+    search_term,
+    SUM(cost) AS total_cost, 
+    SUM(conversion_value) AS total_conversion_value,
+    (SUM(conversion_value)/SUM(cost))::numeric(10,2) AS roas
+FROM campaigns
+INNER JOIN search_terms_all ON campaigns.campaign_id = search_terms_all.campaign_id
+WHERE conversion_value > 1
+GROUP BY structure_value,search_term
+ORDER BY total_cost DESC
+LIMIT 10;
+-- May need to join campaign + structure_value + status
+CREATE OR REPLACE VIEW insight_alias AS
+SELECT DISTINCT alias, 
+    search_term,
+    SUM(cost) AS total_cost, 
+    SUM(conversion_value) AS total_conversion_value,
+    (SUM(conversion_value)/SUM(cost))::numeric(10,2) AS roas
+FROM adgroups
+INNER JOIN search_terms_all ON adgroups.ad_group_id = search_terms_all.ad_group_id
+WHERE conversion_value > 1
+GROUP BY alias,search_term
+ORDER BY total_cost DESC
+LIMIT 10;
+
+SELECT DISTINCT COUNT(alias) FROM adgroups;
+
+select table_name from INFORMATION_SCHEMA.views;
