@@ -1,6 +1,6 @@
 #from transform_search_terms import calculate_roas
 from src.etl_pipeline.scripts.csv_transform.transform_search_terms import calculate_roas
-import pytest
+#import pytest
 from sqlalchemy.orm import sessionmaker, Session, declarative_base
 from sqlalchemy import create_engine
 ##from dotenv import load_dotenv
