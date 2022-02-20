@@ -1,10 +1,12 @@
 #from transform_search_terms import calculate_roas
-from .csv_transform.transform_search_terms import calculate_roas
+from src.etl_pipeline.scripts.csv_transform.transform_search_terms import calculate_roas
 import pytest
 from sqlalchemy.orm import sessionmaker, Session, declarative_base
 from sqlalchemy import create_engine
 ##from dotenv import load_dotenv
 import os
+
+
 
 # load_dotenv()
 
@@ -31,6 +33,5 @@ import os
 #     session.close()
 #     transaction.rollback()
 
-@pytest.fixture
 def test_calculate_roas():
-    assert calculate_roas(100,5) == 50, "return something"
+    assert calculate_roas(100,5) == 20, "return something"
