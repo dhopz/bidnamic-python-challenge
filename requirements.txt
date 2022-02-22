@@ -1,0 +1,13 @@
+attrs==21.4.0
+-e git+https://github.com/dhopz/bidnamic-python-challenge.git@d30c56ffc163006a0521bea8f194168680c8c664#egg=etl_pipeline
+iniconfig==1.1.1
+packaging==21.3
+pluggy==1.0.0
+psycopg2==2.9.3
+py==1.11.0
+pyparsing==3.0.7
+pytest==7.0.1
+python-dotenv==0.19.2
+SQLAlchemy==1.4.31
+tomli==2.0.1
+XlsxWriter==3.0.2

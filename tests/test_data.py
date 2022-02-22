@@ -1,4 +1,3 @@
-from hashlib import new
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, declarative_base
 from src.etl_pipeline.scripts.common.tables import CampaignsAll,AdGroupsAll,SearchTermsAll
