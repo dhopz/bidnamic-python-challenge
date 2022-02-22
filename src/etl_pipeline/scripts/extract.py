@@ -40,6 +40,6 @@ def extract_raw_data():
 # Main function called inside the execute.py script
 def main():
     print("[Extract] Start")
-    print(f"[Extract] Saving data from '{data_path}' to '{transformed_path}'")
+    print(f"[Extract] Saving data from data/raw/ to /data/transformed/")
     extract_raw_data()
     print(f"[Extract] End")

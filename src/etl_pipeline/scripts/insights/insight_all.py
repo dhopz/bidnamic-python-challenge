@@ -58,10 +58,10 @@ def data_structure_value():
 
 
 def main():
-    print(f"[Export] Alias query sent to {base_path}/data/insights/alias_query.xlsx")
+    print(f"[Export] Alias query sent to /data/insights/alias_query.xlsx")
     data_alias()
     print("[Export] Complete")
-    print(f"[Export] Structure Value query sent to {base_path}/data/insights/structure_value_query.xlsx")
+    print(f"[Export] Structure Value query sent to /data/insights/structure_value_query.xlsx")
     data_structure_value()
     print("[Export] Complete")
 

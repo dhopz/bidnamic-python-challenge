@@ -4,12 +4,12 @@ import csv
 # from ..common.tables import SearchTermsAll
 # from ..common.base import session
 
-from src.etl_pipeline.scripts.common.tables import SearchTermsAll
-from src.etl_pipeline.scripts.common.base import session
-print("----package imported----")
+# from src.etl_pipeline.scripts.common.tables import SearchTermsAll
+# from src.etl_pipeline.scripts.common.base import session
+# print("----package imported----")
 
-#from common.tables import SearchTermsAll
-#from common.base import session
+from common.tables import SearchTermsAll
+from common.base import session
 from sqlalchemy import text
 
 

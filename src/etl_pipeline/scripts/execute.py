@@ -10,4 +10,4 @@ if __name__ == "__main__":
     extract.main()
     transform.main()  
     insight_all.main()
-    
+    print("[Pipeline] Complete")
